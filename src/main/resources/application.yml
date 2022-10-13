@@ -1,0 +1,54 @@
+spring:
+  #themleaf����
+  thymeleaf:
+    cache: false
+
+  #����Դ����
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/seckill?useUnicode=true&characterEncoding=UTF-8&Timezone=Asia/Shanghai
+    username: root
+    password: root
+    hikari:
+      #���ӳ���
+      pool-name: DateHikariCP
+      #��С����������
+      minimum-idle: 5
+      #�������Ӵ�����ʱ��
+      idle-timeout: 1800000
+      #���������
+      maximum-pool-size: 10
+      #���ӳط��ص������Զ��ύ
+      auto-commit: true
+      #���������ʱ��
+      max-lifetime: 1800000
+      #���ӳ�ʱʱ��
+      connection-timeout: 30000
+      #���������Ƿ���õĲ�ѯ���
+      connection-test-query: select 1
+
+
+mybatis-plus:
+
+  mapper-locations: classpath*:/mapper/*Mapper.xml
+
+  type-aliases-package: com.yxy.seckilldemo.pojo
+
+redis:
+  host: 59.110.156.146
+  port: 6379
+  database: 0
+  timeout: 10000ms
+  lettuce:
+    pool:
+      max-active: 8
+      max-wait: 10000ms
+      max-idle: 200
+      min-idle: 5
+
+
+
+
+logging:
+  level:
+    com.yxy.seckilldemo.mapper: debug
